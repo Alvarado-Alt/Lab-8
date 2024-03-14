@@ -39,17 +39,17 @@ void mergeSort(int pData[], int l, int r) {
         int n1 = m - l + 1;
         int n2 = r - m;
 
-        // Allocate memory for temporary arrays
+        // Allocate memory for temp arrays
         int* L = (int*)Alloc(n1 * sizeof(int));
         int* R = (int*)Alloc(n2 * sizeof(int));
 
-        // Copy data to temporary arrays L[] and R[]
+        // Copy data to temp arrays
         for (i = 0; i < n1; i++)
             L[i] = pData[l + i];
         for (j = 0; j < n2; j++)
             R[j] = pData[m + 1 + j];
 
-        // Merge the temporary arrays back into pData[l..r]
+        // Merge temp arrays
         i = 0;
         j = 0;
         k = l;
@@ -65,21 +65,21 @@ void mergeSort(int pData[], int l, int r) {
             k++;
         }
 
-        // Copy the remaining elements of L[], if any
+        // Copy remaining elements of L
         while (i < n1) {
             pData[k] = L[i];
             i++;
             k++;
         }
 
-        // Copy the remaining elements of R[], if any
+        // Copy remaining elements of R
         while (j < n2) {
             pData[k] = R[j];
             j++;
             k++;
         }
 
-        // Deallocate memory for temporary arrays
+        // Deallocate memory for temp arrays
         DeAlloc(L);
         DeAlloc(R);
     }
